@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Erro ao processar requisição</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body class="error-page">
+    <img th:src="@{/images/ilus-error.png}" alt="Erro">
+    <h1>Ops!</h1>
+    <p>Não conseguimos processar sua requisição no momento.<br>
+       Clique no botão abaixo para voltar para a tela de login.</p>
+    <form th:action="@{/login}" method="get">
+        <button type="submit">Voltar ao login</button>
+    </form>
+</body>
+</html>
