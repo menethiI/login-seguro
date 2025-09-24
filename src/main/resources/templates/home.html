@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
+    <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
-<body>
-<h2>Bem-vindo!</h2>
-<form th:action="@{/logout}" method="post">
-    <button type="submit">Logout</button>
-</form>
+<body class="home-page">
+
+	<div class="home-container">
+	    <img src="/images/ilus-home.png" alt="Ilustração home">
+	    <h1 class="bemvindo">Bem vindo!</h1>
+	    <p>Esta é a página principal do sistema.</p>
+
+		<div class="button-container">
+		    <form th:action="@{/logout}" method="post">
+		        <button type="submit" class="logout-btn">
+		            <img src="/images/icon-sair.png" alt="Sair" class="logout-icon">
+		            <span class="logout-text">Sair</span>
+		        </button>
+		    </form>
+		</div>
+	</div>
 </body>
 </html>
