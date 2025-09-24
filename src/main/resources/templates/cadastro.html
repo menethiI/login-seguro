@@ -13,9 +13,24 @@
     <div class="right">
         <h2>Crie sua conta</h2>
         <form th:action="@{/cadastro}" method="post">
-            <input type="text" name="nome" placeholder="Nome completo" required>
-            <input type="email" name="email" placeholder="E-mail" required>
-            <input type="password" name="senha" placeholder="Senha" required>
+            <input type="text" name="nome" placeholder="Nome completo" 
+                   pattern="^[A-Za-zÀ-ÿ\s]{1,40}$"
+                   title="Digite apenas letras. Máximo 40 caracteres." required>
+
+            <input type="email" name="email" placeholder="E-mail" 
+                   maxlength="60"
+                   pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+                   title="Digite um e-mail válido. Máximo 60 caracteres." required>
+
+            <input type="password" name="senha" placeholder="Senha" 
+                   minlength="8" maxlength="20"
+                   pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,20}$"
+                   title="A senha deve ter entre 8 e 20 caracteres, incluindo maiúscula, minúscula, número e símbolo." required>
+
+            <input type="password" name="confirmarSenha" placeholder="Confirme sua senha" 
+                   maxlength="20"
+                   title="Confirme sua senha corretamente." required>
+
             <button type="submit">Cadastrar</button>
         </form>
         <p>Já possui uma conta? <a th:href="@{/login}">Clique aqui para realizar o login</a></p>
